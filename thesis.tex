@@ -33,11 +33,18 @@
 
 \begin{document}
 
+
 \pagenumbering{gobble}
 \selectthesislanguage
 \include{include/titlepage}
 \tableofcontents\vfill
 \pagenumbering{arabic}
+
+% Spacing setup
+\setlength{\parindent}{0pt} % No paragraph indenting
+\setlength{\parskip}{7pt} % Set spacing between paragraphs
+\frenchspacing
+\newcommand{\rmspace}{\vspace{-19pt}}
 
 \include{content/introduction}
 
