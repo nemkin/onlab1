@@ -4,21 +4,118 @@ Mielőtt a kvantumalgoritmusokkal elkezdhetünk foglalkozni, először meg kell 
 a kvantuminformatika eszköztárát. A klasszikus számítógépek esetében az információtárolás
 alapegysége a bit, melynek értéke lehet 0 vagy 1. Kvantumszámítógépek esetében az alapegység a kvantum bit, vagy röviden qubit. Kvantum bitek esetében a fizikai
 tulajdonságaiknak köszönhetően az állapottér a komplex számokon értelmezett.
-A legkisebb, kvantum számításra használható állapottér 2 dimenziós, ezt nevezzük qubitnek.
+A legkisebb, kvantum számításra használható állapottér 2 dimenziós.
 
-\definition{\textbf{Qubit}} A 2 dimenziós Hilbert-tér ($H_2$) egy vektorát qubitnek nevezzük. A tér bázisvektorai a $\ket{0}$ és az $\ket{1}$ ket vektorok.
+\definition{\textbf{Qubit}} A 2 dimenziós Hilbert-tér ($H_2$) egy egységvektorát
+qubitnek nevezzük. A tér bázisvektorai a $\ket{0}$ és az $\ket{1}$ ket vektorok.
 
-Egy általános qubit tehát $c_0\ket{0}$.
-\definition{\textbf{Koordináta reprezentáció}} Egy általános qubit
+Egy általános qubit tehát $c_0\ket{0} + c_1\ket{1}$ alakban írható fel, ahol
+$c_0, c_1 \in{} \mathds{C}$ és $|c_0|^2 + |c_1|^2 = 1$.
+
+\definition{\textbf{Koordináta reprezentáció}} A qubiteket koordinátákkal is lehet
+reprezentálni, ekkor $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$,
+$\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ és $c_0\ket{0} + c_1\ket{1} =
+  \begin{pmatrix} c_0 \\ c_1 \end{pmatrix}$.
+
+\definition{\textbf{Mérés}} A kvantum bitek értéke ugyan bármely 1 hosszú vektor
+lehet a 2 dimenziós Hilber-térben, azonban amikor ki szeretnénk olvasni az értéküket,
+akkor Hilber-tér valamely bázisvektorát fogjuk kapni. A $c_0\ket{0} + c_1\ket{1}$
+qubit esetében $|c_0|^2$ valószínűséggel kapjuk a $\ket{0}$ vektort és $|c_1|^2$
+valószínűséggel kapjuk a $\ket{1}$ vektort.
+
+\definition{\textbf{Tenzorszorzat}} Az $r \times s$ méretű $A$ és $t \times u$
+méretű $B$ mátrixok $rt \times su$ méretű $A \otimes B$ tenzorszorzata a
+következőképpen definiált:
+
+\begin{center}
+  $A = \begin{pmatrix}
+      a_{11} & a_{12} & \dots  & a_{1s} \\
+      a_{21} & a_{22} & \dots  & a_{2s} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      a_{r1} & a_{r2} & \ddots & a_{rs}
+    \end{pmatrix}
+  $
+  és
+  $B = \begin{pmatrix}
+      b_{11} & b_{12} & \dots  & b_{1u} \\
+      b_{21} & b_{22} & \dots  & b_{2u} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      b_{t1} & b_{t2} & \ddots & b_{tu}
+    \end{pmatrix}
+  $ esetén
+\end{center}
+
+\begin{center}
+  $A \otimes B = \begin{pmatrix}
+      a_{11}B & a_{12}B & \dots  & a_{1s}B \\
+      a_{21}B & a_{22}B & \dots  & a_{2s}B \\
+      \vdots  & \vdots  & \ddots & \vdots  \\
+      a_{r1}B & a_{r2}B & \ddots & a_{rs}B
+    \end{pmatrix}
+  $
+\end{center}
 
 
+\definition{\textbf{Kvantum regiszter}}
+
+2 dimenziós Hilbert-tér saját magával vett tenzorszorzata annyiszor ahány bites a regiszter.
+
+\section{Kvantum kapuk}
+
+Az unitér mátrixok jelképezik a lehetséges fizikai operációkat a kvantum biteken.
+Egy ilyen unitér mátrix a Hadamard mátrix, melyhez a Hadamard kapu tartozik.
+
+\definition{\textbf{Hadamard mátrix}}
+
+\begin{center}
+  $H = \frac{1}{\sqrt{2}}\begin{pmatrix}
+      1 & 1  \\
+      1 & -1
+    \end{pmatrix}$
+\end{center}
+
+\section{\textbf{Hadamard-féle kvantum érme}}
+
+A Hadamard-féle kvantum érme egy olyan qubit, melynek a kiindulási állapota a
+$c = \ket{0}$ vagy $c \ket{1}$ vektor és ha feldobjuk, akkor a Hadamard mátrixszal
+szorzódik.
+
+Klasszikus érmék esetében ha feldobjuk 1-szer akkor $50\%$ eséllyel kapunk fejet,
+$50\%$ eséllyel pedig írást. Kvantum érmék esetében 1-szer feldobás után hasonló a helyzet.
+Például $\ket{0}$-ból kiindulva $H\ket{0} = \frac{1}{\sqrt{2}}\ket{0} +
+  \frac{1}{\sqrt{2}}\ket{1}$, tehát $(\frac{1}{\sqrt{2}})^2 = \frac{1}{2}$ valószínűséggel
+kapunk majd $\ket{0}$, illetve $\ket{1}$ vektort ha megmérjük a kvantum érmét a feldobás után.
+
+Klasszikus érmék esetében 2-szer egymás után történő feldobás után a helyzet
+hasonló:  $50\%$ eséllyel kapunk fejet, $50\%$ eséllyel pedig írást. Kvantum érmék
+esetében azonban érdekes jelenség figyelhető meg: $H^2\ket{0} = H(\frac{1}{\sqrt{2}}\ket{0} +
+  \frac{1}{\sqrt{2}}\ket{1}) = \ket{0}$, hiszen a Hadamard-mátrix négyzete az
+identitás mátrix. Tehát a 2. feldobás után $100\%$ valószínűséggel a kiindulási
+értéket fogjuk visszakapni.
+
+A fenti megfigyelés azért nagyon érdekes, mert a 2. fejezetben ismertetett
+klasszikus gráfbolyongásban a szomszédok közötti véletlenszerű választás
+felfogható egy speciális érmével való dobásnak. 2-reguláris, 1 élsúlyú gráfok
+esetében a hagyományos érmével dobunk és fej esetén az egyik, írás esetén a másik
+szomszédba megyünk tovább. Megpróbálhatnánk ugyanezt kvantum érmével megtenni,
+a fenti 2-szer dobásos kísérlet alapján várható, hogy nagyon más eredményt fogunk
+kapni!
+
+(k-reguláris, vagy általános, súlyozott gráfok esetére is lehet a fentieket
+általánosítani.)
+
+\chapter{\textbf{Kvantum séta}}
+
+Kvantum bolyongások tanulmányozása esetén tehát először célszerű valamilyen
+2-reguláris gráfon vett bolyongást tanulmányozni, például az egyenesen. A következőkben
+erről lesz szó.
+
+Tegyük fel, hogy a bolyongás az egyenesen az origóból indul és a a $k.$ lépés
+után megáll! Ekkor a pozíció tárolására elegendő egy $2k+1$ méretű vektor,
+hiszen legfeljebb $k$ messzire juthatunk mindkét irányban az origótól.
+
+Jelöljük $P$-vel ezt a $2k+1$ méretű vektort és legyen $P=(p_0,...,p_{2k})$,
+ahol $p_i\in$!
 
 
-\definition{Kvantum regiszter}
-
-
-\chapter{Kvantum séta}
-
-Kvantum bolyongások tanulmányozása esetén először célszerű az egyenesen
-vett bolyongást tanulmányozni.
 
