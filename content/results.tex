@@ -1,5 +1,18 @@
 \chapter{Szimulációk, eredmények}
 
+Ábrák értelmezése:
+
+A lenti ábrákon a matplotlibes plazma színezésnek megfelelően a hidegebb (kék) árnyalatok kisebb
+értéket, a melegebb (lila, majd sárga) árnyalatok magasabb értékeket jelölnek. A fehér
+szín a 0 értéket jelöli.
+
+A gráfok és részgráfok ábrái n*n-es szomszédossági mátrixokat ábrázolnak. A fehér cellák a nem-élek,
+a kék cellák az 1-es súlyú élek.
+
+A szimulációk ábráinak az x tengelyén a gráfok csúcsai helyezkednek el kiterítve, index szerinti
+növekvő sorrendben, az y tengelyen a szimuláció lépései helyezkednek el, alul a 0. lépés, felül
+az utolsó lépés.
+
 \section{Súlyzó gráf}
 
 Például egy súlyzó gráfról a következő képek készültek:
@@ -118,3 +131,45 @@ Például egy súlyzó gráfról a következő képek készültek:
   \end{subfigure}
 \end{figure}
 
+\section{Bolyongás az egyenesen, klasszikus és kvantum esetben}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/quantum/classical_simulation_short.jpg}
+    \caption{Klasszikus}
+  \end{subfigure}
+  \begin{subfigure}{.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/quantum/quantum_simulation_short.jpg}
+    \caption{Kvantum}
+  \end{subfigure}
+\end{figure}
+
+Kijött a szokásos klasszikus és kvantum közötti különbség, a klasszikus az
+origó körül csúcsosodik, a kvantum viszont "2 púpú teve" szerű eloszlást mutat.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{./figures/quantum/teve.png}
+  \caption{Eloszlások különbsége}
+\end{figure}
+
+\section{Bolyongás a szakaszon, klasszikus és kvantum esetben}
+
+A szakasz végpontjai visszatükrözik a bolyongót.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/quantum/classical_simulation_long.jpg}
+    \caption{Klasszikus}
+  \end{subfigure}
+  \begin{subfigure}{.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./figures/quantum/quantum_simulation_long.jpg}
+    \caption{Kvantum}
+  \end{subfigure}
+\end{figure}
