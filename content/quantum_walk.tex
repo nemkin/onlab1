@@ -122,28 +122,54 @@ teljes valószínűségi eloszlást kaptunk a bolyongó pozíciója szerint.
 Mivel kezdetben a bolyongó az origóban van, ezért a hozzá tartozó pozícióvektor legyen
 $P = (0,...,0,1,0,...,0)$, vagyis a $p_0=1$, a többi $0$.
 
-A lépés két fázisból áll. Az első fázisban a pozíció vektort
-tenzor-szorozzunk jobbról a Hadamard-mátrixszal (coin operátor).
+Majd...
 
 \begin{center}
-  $C = P \otimes H = \frac{1}{\sqrt{2}}\begin{pmatrix}
-      p_{-k} & p_{-k}  \\
-      p_{-k} & -p_{-k} \\
-      \vdots & \vdots  \\
-      p_{0}  & p_{0}   \\
-      p_{0}  & -p_{0}  \\
-      \vdots & \vdots  \\
-      p_{k}  & p_{k}   \\
-      p_{k}  & -p_{k}
+  $\ket{\Psi_0} = P \otimes \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{i}{\sqrt{2}} \end{pmatrix}
+    = \frac{1}{\sqrt{2}} \begin{pmatrix}
+      p_{-k}         \\
+      i\cdot{}p_{-k} \\
+      \vdots         \\
+      p_{0}          \\
+      i\cdot{}p_{0}  \\
+      \vdots         \\
+      p_{k}          \\
+      i\cdot{}p_{k}
     \end{pmatrix}
   $
+\end{center}
+
+A lépés két fázisból áll. Az első fázis a coin operátorral való szorzás, ami egy $2 \times 2$-es almátrixokból
+álló $4k+2 \times 4k+2$ -es mátrix, aminek a $2 \times 2$-es főátlójában Hadamard-mátrixok vannak:
+
+\begin{center}
+  \[ \hat{C} =
+    \left(
+    \begin{array}{cc|cc|cc|cc|cc|cc|cc}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0      & 0      & \dots              & \dots               & \dots              & \dots               & \dots              & \dots               & \dots  & \dots  & 0                  & 0                   \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0      & 0      & \dots              & \dots               & \dots              & \dots               & \dots              & \dots               & \dots  & \dots  & 0                  & 0                   \\ \hline
+        0                  & 0                   & \ddots &        & \ddots             &                     & \ddots             &                     & \ddots             &                     & \ddots &        & \vdots             & \vdots              \\
+        0                  & 0                   &        & \ddots &                    & \ddots              &                    & \ddots              &                    & \ddots              &        & \ddots & \vdots             & \vdots              \\ \hline
+        \vdots             & \vdots              & \ddots &        & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0                  & 0                   & \ddots             &                     & \ddots &        & \vdots             & \vdots              \\
+        \vdots             & \vdots              &        & \ddots & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0                  & 0                   &                    & \ddots              &        & \ddots & \vdots             & \vdots              \\ \hline
+        \vdots             & \vdots              & \ddots &        & 0                  & 0                   & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0                  & 0                   & \ddots &        & \vdots             & \vdots              \\
+        \vdots             & \vdots              &        & \ddots & 0                  & 0                   & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0                  & 0                   &        & \ddots & \vdots             & \vdots              \\ \hline
+        \vdots             & \vdots              & \ddots &        & \ddots             &                     & 0                  & 0                   & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & \ddots &        & \vdots             & \vdots              \\
+        \vdots             & \vdots              &        & \ddots &                    & \ddots              & 0                  & 0                   & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} &        & \ddots & \vdots             & \vdots              \\ \hline
+        \vdots             & \vdots              & \ddots &        & \ddots             &                     & \ddots             &                     & \ddots             &                     & \ddots &        & 0                  & 0                   \\
+        \vdots             & \vdots              &        & \ddots &                    & \ddots              &                    & \ddots              &                    & \ddots              &        & \ddots & 0                  & 0                   \\ \hline
+        0                  & 0                   & \dots  & \dots  & \dots              & \dots               & \dots              & \dots               & \dots              & \dots               & 0      & 0      & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+        0                  & 0                   & \dots  & \dots  & \dots              & \dots               & \dots              & \dots               & \dots              & \dots               & 0      & 0      & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+      \end{array}
+    \right)
+  \]
 \end{center}
 
 A második fázisban definiáljuk a shift operátort, ami $2 \times 2$-es almátrixokból áll, a főátló felett a bal felső
 sarokban van 1-es, a főátló alatt a jobb felső sarokban:
 
 \begin{center}
-  \[
+  \[ \hat{S} =
     \left(
     \begin{array}{cc|cc|cc|cc|cc|cc|cc}
         0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\
@@ -165,6 +191,39 @@ sarokban van 1-es, a főátló alatt a jobb felső sarokban:
   \]
 \end{center}
 
+\begin{center}
+  \[ \hat{U} = \hat{S}\cdot{}\hat{C} =
+    \left(
+    \begin{array}{cc|cc|cc|cc|cc|cc|cc}
+        0                    & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 & 0                    & 0                                      & \dots                                   & \dots                                  & \dots                                   & \dots                  & \dots                & \dots                                  & 0                                       & 0                      \\
+        0                    & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 & 0                    & 0                                      & \dots                                   & \dots                                  & \dots                                   & \dots                  & \dots                & \dots                                  & 0                                       & 0                      \\ \hline
+        \cellcolor{red!10} 0 & \cellcolor{red!10} \frac{1}{\sqrt{2}}  & \ddots                                  &                        & \ddots               &                                        & \ddots                                  &                                        & \ddots                                  &                        & \ddots               &                                        & \vdots                                  & \vdots                 \\
+        \cellcolor{red!10} 0 & \cellcolor{red!10} -\frac{1}{\sqrt{2}} &                                         & \ddots                 &                      & \ddots                                 &                                         & \ddots                                 &                                         & \ddots                 &                      & \ddots                                 & \vdots                                  & \vdots                 \\ \hline
+        0                    & 0                                      & \ddots                                  &                        & 0                    & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0                 & \ddots                                  &                        & \ddots               &                                        & \vdots                                  & \vdots                 \\
+        0                    & 0                                      &                                         & \ddots                 & 0                    & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0                 &                                         & \ddots                 &                      & \ddots                                 & \vdots                                  & \vdots                 \\ \hline
+        \vdots               & \vdots                                 & \ddots                                  &                        & \cellcolor{red!10} 0 & \cellcolor{red!10} \frac{1}{\sqrt{2}}  & 0                                       & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 & \ddots               &                                        & \vdots                                  & \vdots                 \\
+        \vdots               & \vdots                                 &                                         & \ddots                 & \cellcolor{red!10} 0 & \cellcolor{red!10} -\frac{1}{\sqrt{2}} & 0                                       & 0                                      & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 &                      & \ddots                                 & \vdots                                  & \vdots                 \\ \hline
+        \vdots               & \vdots                                 & \ddots                                  &                        & \ddots               &                                        & \cellcolor{red!10} 0                    & \cellcolor{red!10} \frac{1}{\sqrt{2}}  & 0                                       & 0                      & \ddots               &                                        & 0                                       & 0                      \\
+        \vdots               & \vdots                                 &                                         & \ddots                 &                      & \ddots                                 & \cellcolor{red!10} 0                    & \cellcolor{red!10} -\frac{1}{\sqrt{2}} & 0                                       & 0                      &                      & \ddots                                 & 0                                       & 0                      \\ \hline
+        \vdots               & \vdots                                 & \ddots                                  &                        & \ddots               &                                        & \ddots                                  &                                        & \ddots                                  &                        & \ddots               &                                        & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 \\
+        \vdots               & \vdots                                 &                                         & \ddots                 &                      & \ddots                                 &                                         & \ddots                                 &                                         & \ddots                 &                      & \ddots                                 & \cellcolor{green!10} \frac{1}{\sqrt{2}} & \cellcolor{green!10} 0 \\ \hline
+        0                    & 0                                      & \dots                                   & \dots                  & \dots                & \dots                                  & \dots                                   & \dots                                  & 0                                       & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} \frac{1}{\sqrt{2}}  & 0                                       & 0                      \\
+        0                    & 0                                      & \dots                                   & \dots                  & \dots                & \dots                                  & \dots                                   & \dots                                  & 0                                       & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} -\frac{1}{\sqrt{2}} & 0                                       & 0                      \\
+      \end{array}
+    \right)
+  \]
+\end{center}
 
+Az $i.$ lépés után az aktuális $\Psi$ vektor: $\ket{\Psi_i} = U^i\cdot{}\ket{\Psi_0}$.
 
+\textbf{Mérés}
 
+Annak a mérése, hogy a $i.$ koordinátán mekkora valószínűséggel van a bolyongó a $j.$ lépésben:
+
+Legyen $I_k$ egy $2k+1$ méretű 0 vektor, kivéve az $i.$ koordinátát, ahol 1.
+
+Ekkor $\ket{p} = (\ket{I_k}\bra{I_k} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}) \cdot{} \ket{\Psi_j}$.
+
+Végül $\braket{p}$ a valószínűség, ami valós.
+
+A fenti algoritmust implementáltam a félév során.
