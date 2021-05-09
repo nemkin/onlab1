@@ -114,8 +114,50 @@ Tegyük fel, hogy a bolyongás az egyenesen az origóból indul és a a $k.$ lé
 után megáll! Ekkor a pozíció tárolására elegendő egy $2k+1$ méretű vektor,
 hiszen legfeljebb $k$ messzire juthatunk mindkét irányban az origótól.
 
-Jelöljük $P$-vel ezt a $2k+1$ méretű vektort és legyen $P=(p_0,...,p_{2k})$,
-ahol $p_i\in$!
+Jelöljük $P$-vel ezt a $2k+1$ méretű vektort és legyen $P=(p_{-k},...,p_0,...,p_{k})$,
+ahol $p_i\in\mathds{C}$ $\forall i$-re és $\sum\limits_{i=-k}^{k}|p_i|^2 = 1$. Azt mondjuk, hogy
+annak a valószínűsége, hogy a bolyongó éppen az $i.$ koordinátán van $|p_i|^2$. Ezáltal egy
+teljes valószínűségi eloszlást kaptunk a bolyongó pozíciója szerint.
 
+Mivel kezdetben a bolyongó az origóban van, ezért a hozzá tartozó pozícióvektor legyen
+$P = (0,...,0,1,0,...,0)$, vagyis a $p_0=1$, a többi $0$.
+
+A lépés két fázisból áll. Az első fázisban a pozíció vektort
+tenzor-szorozzunk jobbról a Hadamard-mátrixszal (coin operátor).
+
+$C = P \otimes H = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    p_{-k} & p_{-k}  \\
+    p_{-k} & -p_{-k} \\
+    \vdots & \vdots  \\
+    p_{0}  & p_{0}   \\
+    p_{0}  & -p_{0}  \\
+    \vdots & \vdots  \\
+    p_{k}  & p_{k}   \\
+    p_{k}  & -p_{k}
+  \end{pmatrix}
+$
+
+\[
+  \left(
+  \begin{array}{cc|cc|cc|cc|cc|cc|cc}
+      0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\
+      0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\ \hline
+      \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
+      \cellcolor{red!10} 0 & \cellcolor{red!10} 1 &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+      0                    & 0                    & \ddots                 &                        & 0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
+      0                    & 0                    &                        & \ddots                 & 0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+      \vdots               & \vdots               & \ddots                 &                        & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots               &                      & \vdots                 & \vdots                 \\
+      \vdots               & \vdots               &                        & \ddots                 & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+      \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \cellcolor{red!10} 0   & \cellcolor{red!10} 0   & 0                      & 0                      & \ddots               &                      & 0                      & 0                      \\
+      \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               & \cellcolor{red!10} 0   & \cellcolor{red!10} 1   & 0                      & 0                      &                      & \ddots               & 0                      & 0                      \\ \hline
+      \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 \\
+      \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 \\ \hline
+      0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      \\
+      0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      \\
+    \end{array}
+  \right)
+\]
+
+A második fázisban definiáljuk a shift operátort:
 
 
