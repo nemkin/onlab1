@@ -1,18 +1,90 @@
 \chapter{Architektúra}
 
-Választott nyelv: Python3. Cpp, Csharp-on gondolkoztam még, de aztán elvetettem,
-mert a Pythonnak van a legextenzívebb data science library készlete, tehát
-itt a legkönnyebb elindulni. Konzulensem ajánlotta.
+Ebben a fejezetben bemutatom az elkészült keretrendszert.
 
-Felhasznált libraryk: numpy, matplotlib.
+Programozási nyelvnek a Python 3-mat választottam. Ennek oka az, hogy nagyon
+sok data science-el kapcsolatos modulja van, mely nagyban megkönnyíti a különböző
+matematikai, algoritmuselméleti problémák feltárását, könnyen iterálhatunk
+a különböző prototípusokon. Emellett a szintaxisa rövid, tömör, lényegretörő
+programkódok megírását teszi lehetővé.
 
-Numpy alapvető matematikai cucc, matplotlib pedig a leginkább használt grafikus megjelenítő.
+A forráskód három nagy részre bomlik:
+\begin{itemize}
+  \item Gráfmodellek
+  \item Szimulátorok
+  \item Futtatás, konfiguráció, eredmények ábragenerátora
+\end{itemize}
 
-Felépítés:
+\section{Gráfmodellek}
 
-Gráfokat szomszédossági orákulummal adom meg.
+A félév során sokféle gráfon futtattam szimulációs kísérleteket, melyek során
+több problémába ütköztem. Kezdetben úgy oldottam meg a szimulációkat, hogy a
+cél gráfok szomszédossági mátrixait generáltam le, egyben a memóriában tartva
+azokat és a lépések során a megfelelő csúcshoz tartozó sorokat lekérdezve.
 
-Lényege: SubGraph és Graph osztályok.
+Ezzel a módszerrel több probléma is jelentkezett. Az első gondot az okozta, hogy
+a szomszédossági mátrix mérete a csúcsszám négyzetével arányos, ezért pár ezer
+csúcsú gráfot már nem tudtam a memóriában tartva szimulálni. A második probléma
+pedig az volt, hogy a szomszédossági mátrixos ábrázolás nagyon távol esett
+az emberi szempontból természetes ábrázolástól. A kvantum bolyongásos szimulációkat
+tipikusan nem véletlenszerű gráfokon szokták kipróbálni, hanem jól ismert struktúrával
+rendelkező gráfokon. Ilyen gráfok például a súlyzó vagy a ragasztott bináris fa gráfok.
 
-Ábra: SubGraph, leszármazottai, Graph, leszármazottai.
+A súlyzó gráf két egyforma méretű kört tartalmaz, mindkét körből kiválasztva k-k
+darab csúcsot, melyek teljes páros gráfot alkotnak (a súlyzó középső rúdját).
+A kör gráfokban pedig nem csak az egymás melletti csúcsok között fut él, hanem
+futhat él minden i. csúcs között is. A ragasztott bináris fa gráf pedig olyan,
+hogy két teljes bináris gráf leveleit szembefordítjuk és a két oldali levelek
+közé egy teljes páros gráfot készítünk.
 
+A fenti leírásból látható, hogy az ember számára természetes leírás a gráfokat
+ismert részgráfok kompozitjaként adja meg. A félév során olyan architektúrát
+alakítottam ki a szimulációkhoz, mely ezt a szemléletet támogatja. A szomszédossági
+mátrixos tárolási mód helyett pedig a szomszédossági orákulum megközelítést
+használva nagyban csökkent a memóriaigénye az alkalmazásnak. Ennek a megközelítésnek
+a lényege, hogy az ismert struktúrájú gráfokra nem tárolok a memóriában
+szomszédossági információt, helyette biztosítok egy függvényt, amely a bemeneti
+paraméterként kapott csúcsindexre kiszámolja a vele szomszédos csúcsok indexeit.
+
+A félév során a következő nevesített részgráfok szomszédossági orákulumját implementáltam:
+\begin{itemize}
+  \item BinaryTree
+  \item Bipartite
+  \item Circle
+  \item Path
+  \item Random
+\end{itemize}
+
+\begin{center}
+  \includegraphics[width=\linewidth]{./figures/subgraph.png}
+\end{center}
+
+Ezen részgráfokból épülnek fel az alábbi kompozit gráfok:
+\begin{itemize}
+  \item Dumbbell
+  \item GluedBinary
+\end{itemize}
+
+\begin{center}
+  \includegraphics[width=0.4\linewidth]{./figures/graph.png}
+\end{center}
+
+\section{Szimulátorok}
+
+A szimulátor osztályok közül a klasszikus tetszőleges kompozit gráfot tud fogadni,
+a kvantum szimulátor jelenleg a kvantum bolyongás egy speciális esetét, az egyenesen
+való bolyongást képes kezelni, mely a 2-regularitása miatt egyszerűbben implementálható.
+Hosszú távú cél a k-reguláris, illetve az általános gráfokra kiterjeszteni ezt a szimulátort.
+
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{./figures/simulator.png}
+\end{center}
+
+\section{Futtatás, konfiguráció, eredmények ábragenerátora}
+
+A fenti osztályok segítségével egy olyan keretrendszert alakítottam ki, melyben
+nagyon gyorsan fel lehet 1-1 futtatást konfigurálni. A futtatás eredményeit egy
+összesített Latex dokumentumba gyűjti a program. Ez tartalmazza a beadott
+gráf részgráfjainak nevesített típusát, szomszédossági mátrixait, illetve a
+teljes gráf szomszédossági mátrixát, valamint a szimulációk eloszlási eredményeit.
+A következő fejezetben több ilyen ábrát is bemutatok.
