@@ -125,39 +125,46 @@ $P = (0,...,0,1,0,...,0)$, vagyis a $p_0=1$, a többi $0$.
 A lépés két fázisból áll. Az első fázisban a pozíció vektort
 tenzor-szorozzunk jobbról a Hadamard-mátrixszal (coin operátor).
 
-$C = P \otimes H = \frac{1}{\sqrt{2}}\begin{pmatrix}
-    p_{-k} & p_{-k}  \\
-    p_{-k} & -p_{-k} \\
-    \vdots & \vdots  \\
-    p_{0}  & p_{0}   \\
-    p_{0}  & -p_{0}  \\
-    \vdots & \vdots  \\
-    p_{k}  & p_{k}   \\
-    p_{k}  & -p_{k}
-  \end{pmatrix}
-$
+\begin{center}
+  $C = P \otimes H = \frac{1}{\sqrt{2}}\begin{pmatrix}
+      p_{-k} & p_{-k}  \\
+      p_{-k} & -p_{-k} \\
+      \vdots & \vdots  \\
+      p_{0}  & p_{0}   \\
+      p_{0}  & -p_{0}  \\
+      \vdots & \vdots  \\
+      p_{k}  & p_{k}   \\
+      p_{k}  & -p_{k}
+    \end{pmatrix}
+  $
+\end{center}
 
-\[
-  \left(
-  \begin{array}{cc|cc|cc|cc|cc|cc|cc}
-      0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\
-      0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\ \hline
-      \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
-      \cellcolor{red!10} 0 & \cellcolor{red!10} 1 &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
-      0                    & 0                    & \ddots                 &                        & 0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
-      0                    & 0                    &                        & \ddots                 & 0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
-      \vdots               & \vdots               & \ddots                 &                        & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots               &                      & \vdots                 & \vdots                 \\
-      \vdots               & \vdots               &                        & \ddots                 & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
-      \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \cellcolor{red!10} 0   & \cellcolor{red!10} 0   & 0                      & 0                      & \ddots               &                      & 0                      & 0                      \\
-      \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               & \cellcolor{red!10} 0   & \cellcolor{red!10} 1   & 0                      & 0                      &                      & \ddots               & 0                      & 0                      \\ \hline
-      \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 \\
-      \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 \\ \hline
-      0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      \\
-      0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      \\
-    \end{array}
-  \right)
-\]
+A második fázisban definiáljuk a shift operátort, ami $2 \times 2$-es almátrixokból áll, a főátló felett a bal felső
+sarokban van 1-es, a főátló alatt a jobb felső sarokban:
 
-A második fázisban definiáljuk a shift operátort:
+\begin{center}
+  \[
+    \left(
+    \begin{array}{cc|cc|cc|cc|cc|cc|cc}
+        0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\
+        0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 & 0                    & 0                    & \dots                  & \dots                  & \dots                  & \dots                  & \dots                & \dots                & 0                      & 0                      \\ \hline
+        \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
+        \cellcolor{red!10} 0 & \cellcolor{red!10} 1 &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+        0                    & 0                    & \ddots                 &                        & 0                    & 0                    & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots                 &                        & \ddots               &                      & \vdots                 & \vdots                 \\
+        0                    & 0                    &                        & \ddots                 & 0                    & 0                    & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                        & \ddots                 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+        \vdots               & \vdots               & \ddots                 &                        & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 & \ddots               &                      & \vdots                 & \vdots                 \\
+        \vdots               & \vdots               &                        & \ddots                 & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 &                      & \ddots               & \vdots                 & \vdots                 \\ \hline
+        \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \cellcolor{red!10} 0   & \cellcolor{red!10} 0   & 0                      & 0                      & \ddots               &                      & 0                      & 0                      \\
+        \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               & \cellcolor{red!10} 0   & \cellcolor{red!10} 1   & 0                      & 0                      &                      & \ddots               & 0                      & 0                      \\ \hline
+        \vdots               & \vdots               & \ddots                 &                        & \ddots               &                      & \ddots                 &                        & \ddots                 &                        & \ddots               &                      & \cellcolor{green!10} 1 & \cellcolor{green!10} 0 \\
+        \vdots               & \vdots               &                        & \ddots                 &                      & \ddots               &                        & \ddots                 &                        & \ddots                 &                      & \ddots               & \cellcolor{green!10} 0 & \cellcolor{green!10} 0 \\ \hline
+        0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 0 & 0                      & 0                      \\
+        0                    & 0                    & \dots                  & \dots                  & \dots                & \dots                & \dots                  & \dots                  & 0                      & 0                      & \cellcolor{red!10} 0 & \cellcolor{red!10} 1 & 0                      & 0                      \\
+      \end{array}
+    \right)
+  \]
+\end{center}
+
+
 
 
