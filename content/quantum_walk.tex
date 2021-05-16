@@ -6,24 +6,24 @@ alapegysége a bit, melynek értéke lehet 0 vagy 1. Kvantumszámítógépek ese
 tulajdonságaiknak köszönhetően az állapottér a komplex számokon értelmezett.
 A legkisebb, kvantum számításra használható állapottér 2 dimenziós.
 
-\definition{\textbf{Qubit}} A 2 dimenziós Hilbert-tér ($H_2$) egy egységvektorát
+\paragraph{Qubit} A 2 dimenziós Hilbert-tér ($H_2$) egy egységvektorát
 qubitnek nevezzük. A tér bázisvektorai a $\ket{0}$ és az $\ket{1}$ ket vektorok.
 
 Egy általános qubit tehát $c_0\ket{0} + c_1\ket{1}$ alakban írható fel, ahol
 $c_0, c_1 \in{} \mathds{C}$ és $|c_0|^2 + |c_1|^2 = 1$.
 
-\definition{\textbf{Koordináta reprezentáció}} A qubiteket koordinátákkal is lehet
+\paragraph{Koordináta reprezentáció} A qubiteket koordinátákkal is lehet
 reprezentálni, ekkor $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$,
 $\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ és $c_0\ket{0} + c_1\ket{1} =
   \begin{pmatrix} c_0 \\ c_1 \end{pmatrix}$.
 
-\definition{\textbf{Mérés}} A kvantum bitek értéke ugyan bármely 1 hosszú vektor
+\paragraph{Mérés} A kvantum bitek értéke ugyan bármely 1 hosszú vektor
 lehet a 2 dimenziós Hilber-térben, azonban amikor ki szeretnénk olvasni az értéküket,
 akkor Hilber-tér valamely bázisvektorát fogjuk kapni. A $c_0\ket{0} + c_1\ket{1}$
 qubit esetében $|c_0|^2$ valószínűséggel kapjuk a $\ket{0}$ vektort és $|c_1|^2$
 valószínűséggel kapjuk a $\ket{1}$ vektort.
 
-\definition{\textbf{Tenzorszorzat}} Az $r \times s$ méretű $A$ és $t \times u$
+\paragraph{Tenzorszorzat} Az $r \times s$ méretű $A$ és $t \times u$
 méretű $B$ mátrixok $rt \times su$ méretű $A \otimes B$ tenzorszorzata a
 következőképpen definiált:
 
@@ -56,7 +56,7 @@ következőképpen definiált:
 \end{center}
 
 
-\definition{\textbf{Kvantum regiszter}}
+\paragraph{Kvantum regiszter}
 
 2 dimenziós Hilbert-tér saját magával vett tenzorszorzata annyiszor ahány bites a regiszter.
 
@@ -65,7 +65,7 @@ következőképpen definiált:
 Az unitér mátrixok jelképezik a lehetséges fizikai operációkat a kvantum biteken.
 Egy ilyen unitér mátrix a Hadamard mátrix, melyhez a Hadamard kapu tartozik.
 
-\definition{\textbf{Hadamard mátrix}}
+\paragraph{Hadamard mátrix}
 
 \begin{center}
   $H = \frac{1}{\sqrt{2}}\begin{pmatrix}

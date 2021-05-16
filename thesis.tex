@@ -1,42 +1,55 @@
-% !TeX spellcheck = hu_HU
-% !TeX encoding = UTF-8
-% !TeX program = xelatex
-
 \documentclass[11pt,a4paper,oneside]{report}
 
 \usepackage[table]{xcolor}
-\input{include/packages}
 
-%TODO Set the main variables
-\newcommand{\vikszerzoVezeteknev}{Nemkin}
-\newcommand{\vikszerzoKeresztnev}{Viktória}
 
-\newcommand{\vikkonzulensAMegszolitas}{dr.~}
-\newcommand{\vikkonzulensAVezeteknev}{Friedl}
-\newcommand{\vikkonzulensAKeresztnev}{Katalin}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
-\newcommand{\vikkonzulensBMegszolitas}{}
-\newcommand{\vikkonzulensBVezeteknev}{}
-\newcommand{\vikkonzulensBKeresztnev}{}
+\usepackage[magyar]{babel}
 
-\newcommand{\vikkonzulensCMegszolitas}{}
-\newcommand{\vikkonzulensCVezeteknev}{}
-\newcommand{\vikkonzulensCKeresztnev}{}
+\selectlanguage{magyar}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0em}
+\frenchspacing
 
-\newcommand{\vikcim}{Kvantum gráfbolyongások}
-\newcommand{\viktanszek}{\bmeszit}
-\newcommand{\vikdoktipus}{\msconlabi}
+\usepackage{setspace}
+\singlespacing
 
-\newcommand{\szerzoMeta}{\vikszerzoVezeteknev{} \vikszerzoKeresztnev}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
 
-\input{include/thesis-hu}
-\input{include/preamble}
+
+\usepackage{anysize}
+\usepackage[unicode, hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\usepackage[hang]{caption}
+\usepackage[numbers]{natbib}
+\bibliographystyle{acm}
+
+\usepackage{xspace}
+\usepackage{physics}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{dsfont}
+
+
+\pagestyle{plain}
+\marginsize{30mm}{30mm}{15mm}{15mm}
+
+
+\author{Nemkin Viktória}
+\title{Kvantum gráfbolyongások}
 
 \begin{document}
 
 
 \pagenumbering{gobble}
-\selectthesislanguage
 \include{include/titlepage}
 \tableofcontents\vfill
 \pagenumbering{arabic}
@@ -47,6 +60,9 @@
 \include{content/architecture}
 \include{content/results}
 \include{content/future}
+
+\nocite{*}
+
 
 Források (rendesen hivatkozva majd...):
 \begin{itemize}

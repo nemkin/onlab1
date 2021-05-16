@@ -6,17 +6,17 @@ A Markov-folyamat valószínűségi változóknak egy sorozata ($X_1, X_2, ..., 
 melyek ugyanabból a diszkrét eloszlásból származnak és melyekre teljesül a
 Markov-tulajdonság.
 
-\definition{}\textbf{Markov-tulajdonság} A valószínűségi változók sorozatában
+\paragraph{Markov-tulajdonság} A valószínűségi változók sorozatában
 az $i+1.$ változó értéke csak az $i.$ változó értékétől függ, azaz
 $P(X_{i+1} = x_{i+1} | X_i = x_i, ..., X_1 = x_1) = P(X_{i+1} = x_{i+1} | X_i = x_i)$.
 
-\definition{}\textbf{Homogén Markov-lánc} Olyan Markov-lánc melyben az átmeneti
+\paragraph{Homogén Markov-lánc} Olyan Markov-lánc melyben az átmeneti
 valószínűség nem függ az időtől, azaz $P(X_{n+1} = j | X_n = i) = p_{i,j}$.
 
-\definition{}\textbf{Átmeneti valószínűségi mátrix}
+\paragraph{Átmeneti valószínűségi mátrix}
 A Markov-lánc átmeneti valószínűségi mátrixa ezen $p_{i,j}$ elemekből áll.
 
-\definition{}\textbf{Stacionárius eloszlás} Az $X_i$ változó eloszlása ha i tart
+\paragraph{Stacionárius eloszlás} Az $X_i$ változó eloszlása ha i tart
 a végtelenbe?
 
 Egy ilyen Markov folymat megfeleltethető egy irányított súlyozott gráfnak, a következő megkötésekkel:
@@ -44,11 +44,11 @@ $k.$ változójának az eloszlása.
 
 Bolyongásokkal kapcsolatban többféle tulajdonságot szoktak mérni adott gráfon.
 
-\definition{}\textbf{Keveredési idő} A Markov lánc azon valószínűségi változójának
+\paragraph{Keveredési idő} A Markov lánc azon valószínűségi változójának
 az indexe, melynek az eloszlása a stacionárius eloszlás $\epsilon$ sugarú környezetében
 van.
 
-\definition{}\textbf{Hitting time} Az $i \rightarrow j$ csúcsok
+\paragraph{Hitting time} Az $i \rightarrow j$ csúcsok
 közötti elérési idő a legkisebb szám, ahanyadik hatványra emelve az
 átmeneti valószínűségi mátrixot az $i.$ sor $j.$ cellájában nem 0 az érték?
 
