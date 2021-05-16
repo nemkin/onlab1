@@ -1,53 +1,42 @@
 \documentclass[11pt,a4paper,oneside]{report}
 
-\usepackage[table]{xcolor}
+% Size setup
+\usepackage{anysize}
+\marginsize{30mm}{30mm}{15mm}{15mm}
 
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-
-\usepackage[magyar]{babel}
-
-\selectlanguage{magyar}
-\setlength{\parindent}{2em}
-\setlength{\parskip}{0em}
+% Spacing setup
+\setlength{\parindent}{2em} % Paragraph indenting
+\setlength{\parskip}{0em} % Spacing between paragraphs
 \frenchspacing
 
-\usepackage{setspace}
-\singlespacing
+% Language setup
+\usepackage[magyar]{babel} % Babel for Hungarian
+\usepackage[T1]{fontenc} % Output character encoding
+\usepackage[utf8]{inputenc} % Input character encoding
+\selectlanguage{magyar}
 
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{booktabs}
-\usepackage{graphicx}
+% Notation setup
+\usepackage{dsfont} % Number set fonts
+\usepackage{physics} % Braket notation
 
+% Image setup
+\usepackage{graphicx} % Included graphics
+\usepackage{subcaption} % Subfigures
+\usepackage{float} % Fix image position
 
-\usepackage{anysize}
-\usepackage[unicode, hidelinks]{hyperref}
-\usepackage{xcolor}
-\usepackage{listings}
+% Table setup
+\usepackage[table]{xcolor} % Cell colors
+% \usepackage{booktabs}
+% https://jdhao.github.io/2019/08/27/latex_table_with_booktabs/
 
-\usepackage[hang]{caption}
+% Style setup
+\usepackage[hidelinks]{hyperref} % Remove ugly rectangles around urls
+
+% Bibliography setup
 \usepackage[numbers]{natbib}
 \bibliographystyle{acm}
 
-\usepackage{xspace}
-\usepackage{physics}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{dsfont}
-
-
-\pagestyle{plain}
-\marginsize{30mm}{30mm}{15mm}{15mm}
-
-
-\author{Nemkin Viktória}
-\title{Kvantum gráfbolyongások}
-
 \begin{document}
-
 
 \pagenumbering{gobble}
 \include{include/titlepage}
@@ -62,7 +51,6 @@
 \include{content/future}
 
 \nocite{*}
-
 
 Források (rendesen hivatkozva majd...):
 \begin{itemize}
