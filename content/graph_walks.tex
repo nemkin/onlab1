@@ -2,29 +2,30 @@
 
 A klasszikus gráfbolyongások tulajdonképpen Markov-folyamatoknak felelnek meg.
 
-A Markov-folyamat valószínűségi változóknak egy sorozata ($X_1, X_2, ..., X_n, ...$),
-melyek ugyanabból a diszkrét eloszlásból származnak és melyekre teljesül a
-Markov-tulajdonság.
+A Markov-folyamat valószínűségi változóknak egy sorozata ($X_1, X_2, ..., X_n,
+  ...$), melyek ugyanabból a diszkrét eloszlásból származnak és melyekre teljesül
+a Markov-tulajdonság.
 
-\paragraph{Markov-tulajdonság} A valószínűségi változók sorozatában
-az $(i+1).$ változó értéke csak az $i.$ változó értékétől függ, azaz
-$P(X_{i+1} = x_{i+1} | X_i = x_i, ..., X_1 = x_1) = P(X_{i+1} = x_{i+1} | X_i = x_i)$.
+\paragraph{Markov-tulajdonság} A valószínűségi változók sorozatában az $(i+1).$
+változó értéke csak az $i.$ változó értékétől függ, azaz $P(X_{i+1} = x_{i+1} |
+  X_i = x_i, ..., X_1 = x_1) = P(X_{i+1} = x_{i+1} | X_i = x_i)$.
 
 \paragraph{Homogén Markov-lánc} Olyan Markov-lánc melyben az átmeneti
 valószínűség nem függ az időtől, azaz $P(X_{n+1} = i | X_n = j) = p_{i,j}$.
 
-\paragraph{Átmeneti valószínűségi mátrix}
-A Markov-lánc átmeneti valószínűségi mátrixa ezen $p_{i,j}$ elemekből áll.
+\paragraph{Átmeneti valószínűségi mátrix} A Markov-lánc átmeneti valószínűségi
+mátrixa ezen $p_{i,j}$ elemekből áll.
 
-\paragraph{Stacionárius eloszlás} Az $X_i$ változó eloszlása ha $i$ tart
-a végtelenbe.
+\paragraph{Stacionárius eloszlás} Az $X_i$ változó eloszlása ha $i$ tart a
+végtelenbe.
 
 \paragraph{}
 
 Egy ilyen Markov folymat megfeleltethető egy irányított súlyozott gráfnak,
 a következő megkötésekkel:
+
 \begin{itemize}
-  \item A gráf csúcsai megfelelnek a valószínűségi változók (közös)
+  \item A gráf csúcsai ultra thinmegfelelnek a valószínűségi változók (közös)
         értékkészletének az elemeinek.
   \item A $j.$ csúcsból au $i.$ csúcsba mutató él súlya $p_{i,j}$.
   \item Amennyiben $p_{i,j}=0$, úgy feltehető, hogy nem mutat él a $j.$
@@ -34,8 +35,9 @@ a következő megkötésekkel:
 \paragraph{}
 
 Ezek alapján a Markov-lánc átmeneti valószínűségi mátrixa a fent definiált gráf
-szomszédossági mátrixával egyezik. A gráfon klasszikus értelemben vett bolyongást
-a következő módon végzünk:
+szomszédossági mátrixával egyezik. A gráfon klasszikus értelemben vett
+bolyongást a következő módon végzünk:
+
 \begin{itemize}
   \item Kiindulunk egy előre megadott csúcsból.
   \item A csúcsból kifele mutató élek közül a valószínűségeikkel súlyozva
@@ -45,31 +47,30 @@ a következő módon végzünk:
 
 \paragraph{}
 
-Egy gráfon egyszerre több ilyen bolyongást is végezhetünk, párhuzamosan. A
-$k.$ lépésben hozzárendelhető a gráf csúcsaihoz, hogy aktuálisan hány bolyongó
-helyezkedik el bennük. Megfelelően sok bolyongóval így közelíthető az Markov-lánc
-$k.$ változójának az eloszlása.
+Egy gráfon egyszerre több ilyen bolyongást is végezhetünk, párhuzamosan. A $k.$
+lépésben hozzárendelhető a gráf csúcsaihoz, hogy aktuálisan hány bolyongó
+helyezkedik el bennük. Megfelelően sok bolyongóval így közelíthető az
+Markov-lánc $k.$ változójának az eloszlása.
 
 Bolyongásokkal kapcsolatban többféle tulajdonságot szoktak mérni adott gráfon.
 
-\paragraph{Keverési idő} A Markov lánc azon valószínűségi változójának
-az indexe, melynek az eloszlása a stacionárius eloszlás $\epsilon$ sugarú
+\paragraph{Keverési idő} A Markov lánc azon valószínűségi változójának az
+indexe, melynek az eloszlása a stacionárius eloszlás $\epsilon$ sugarú
 környezetében van.
 
-\paragraph{Elérési idő} Az $i \leftarrow j$ csúcsok
-közötti elérési idő a legkisebb szám, ahanyadik hatványra emelve az
-átmeneti valószínűségi mátrixot az $i.$ sor $j.$ cellájában nemnulla érték
-szerepel.
+\paragraph{Elérési idő} Az $i \leftarrow j$ csúcsok közötti elérési idő a
+legkisebb szám, ahanyadik hatványra emelve az átmeneti valószínűségi mátrixot
+az $i.$ sor $j.$ cellájában nemnulla érték szerepel.
 
 \paragraph{}
 
 A gyakorlatban sokféle közgazdaságtani, játékelméleti, statisztikus fizikából
 ismert jelenséget modelleznek Markov-folyamatokkal. Ezek mellett gráfbolyongási
 algoritmusokkal olyan problémák megoldását is fel lehet gyorsítani, a véletlen
-bevezetésével, melyek alapból nem tartalmazzák azt. Például nagy méretű gráfokban
-lehet ilyen módon részgráfokat keresni, de az internetes keresőalgoritmusok
-(PageRank) is ezen az alapon működnek.
+bevezetésével, melyek alapból nem tartalmazzák azt. Például nagy méretű
+gráfokban lehet ilyen módon részgráfokat keresni, de az internetes
+keresőalgoritmusok (PageRank) is ezen az alapon működnek.
 
-A kvantumbolyongásokat azért érdemes külön vizsgálni, mert esetükben a
-véletlen választás teljesen másfajta módon működik, mint klasszikus esetben,
-erről a következő fejezetben lesz szó.
+A kvantumbolyongásokat azért érdemes külön vizsgálni, mert esetükben a véletlen
+választás teljesen másfajta módon működik, mint klasszikus esetben, erről a
+következő fejezetben lesz szó.

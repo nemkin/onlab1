@@ -1,31 +1,33 @@
 \chapter{Kvantuminformatika}
 
-Mielőtt a kvantumalgoritmusokkal elkezdhetünk foglalkozni, először meg kell ismernünk
-a kvantuminformatika eszköztárát. A klasszikus számítógépek esetében az információtárolás
-alapegysége a bit, melynek értéke lehet 0 vagy 1. Kvantumszámítógépek esetében az alapegység a kvantum bit, vagy röviden qubit. Kvantum bitek esetében a fizikai
-tulajdonságaiknak köszönhetően az állapottér a komplex számokon értelmezett.
-A legkisebb, kvantum számításra használható állapottér 2 dimenziós.
+Mielőtt a kvantumalgoritmusokkal elkezdhetünk foglalkozni, először meg kell
+ismernünk a kvantuminformatika eszköztárát. A klasszikus számítógépek esetében
+az információtárolás alapegysége a bit, melynek értéke lehet 0 vagy 1.
+Kvantumszámítógépek esetében az alapegység a kvantumbit, vagy röviden qubit.
+Kvantumbitek esetében a fizikai tulajdonságaiknak köszönhetően az állapottér a
+komplex számokon értelmezett. A legkisebb, kvantumszámításra használható
+állapottér 2 dimenziós.
 
-\paragraph{Qubit} A 2 dimenziós Hilbert-tér ($H_2$) egy egységvektorát
-qubitnek nevezzük. A tér bázisvektorai a $\ket{0}$ és az $\ket{1}$ ket vektorok.
+\paragraph{Qubit} A 2 dimenziós Hilbert-tér ($H_2$) egy egységvektorát qubitnek
+nevezzük. A tér bázisvektorai a $\ket{0}$ és az $\ket{1}$ ket vektorok.
 
 Egy általános qubit tehát $c_0\ket{0} + c_1\ket{1}$ alakban írható fel, ahol
 $c_0, c_1 \in{} \mathds{C}$ és $|c_0|^2 + |c_1|^2 = 1$.
 
 \paragraph{Koordináta reprezentáció} A qubiteket koordinátákkal is lehet
-reprezentálni, ekkor $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$,
-$\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ és $c_0\ket{0} + c_1\ket{1} =
+reprezentálni, ekkor $\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$, $\ket{1}
+  = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ és $c_0\ket{0} + c_1\ket{1} =
   \begin{pmatrix} c_0 \\ c_1 \end{pmatrix}$.
 
-\paragraph{Mérés} A kvantum bitek értéke ugyan bármely 1 hosszú vektor
-lehet a 2 dimenziós Hilber-térben, azonban amikor ki szeretnénk olvasni az értéküket,
-akkor Hilber-tér valamely bázisvektorát fogjuk kapni. A $c_0\ket{0} + c_1\ket{1}$
-qubit esetében $|c_0|^2$ valószínűséggel kapjuk a $\ket{0}$ vektort és $|c_1|^2$
-valószínűséggel kapjuk a $\ket{1}$ vektort.
+\paragraph{Mérés} A kvantumbitek értéke ugyan bármely 1 hosszú vektor lehet a 2
+dimenziós Hilber-térben, azonban amikor ki szeretnénk olvasni az értéküket,
+akkor Hilber-tér valamely bázisvektorát fogjuk kapni. A $c_0\ket{0} +
+  c_1\ket{1}$ qubit esetében $|c_0|^2$ valószínűséggel kapjuk a $\ket{0}$ vektort
+és $|c_1|^2$ valószínűséggel kapjuk a $\ket{1}$ vektort.
 
-\paragraph{Tenzorszorzat} Az $r \times s$ méretű $A$ és $t \times u$
-méretű $B$ mátrixok $rt \times su$ méretű $A \otimes B$ tenzorszorzata a
-következőképpen definiált:
+\paragraph{Tenzorszorzat} Az $r \times s$ méretű $A$ és $t \times u$ méretű $B$
+mátrixok $rt \times su$ méretű $A \otimes B$ tenzorszorzata a következőképpen
+definiált:
 
 \begin{center}
   $A = \begin{pmatrix}
@@ -56,14 +58,16 @@ következőképpen definiált:
 \end{center}
 
 
-\paragraph{Kvantum regiszter}
+\paragraph{Kvantumregiszter}
 
-2 dimenziós Hilbert-tér saját magával vett tenzorszorzata annyiszor ahány bites a regiszter.
+2 dimenziós Hilbert-tér saját magával vett tenzorszorzata annyiszor ahány bites
+a regiszter.
 
-\section{Kvantum kapuk}
+\section{Kvantumkapuk}
 
-Az unitér mátrixok jelképezik a lehetséges fizikai operációkat a kvantum biteken.
-Egy ilyen unitér mátrix a Hadamard mátrix, melyhez a Hadamard kapu tartozik.
+Az unitér mátrixok jelképezik a lehetséges fizikai operációkat a
+kvantumbiteken. Egy ilyen unitér mátrix a Hadamard mátrix, melyhez a Hadamard
+kapu tartozik.
 
 \paragraph{Hadamard mátrix}
 
@@ -74,53 +78,55 @@ Egy ilyen unitér mátrix a Hadamard mátrix, melyhez a Hadamard kapu tartozik.
     \end{pmatrix}$
 \end{center}
 
-\section{\textbf{Hadamard-féle kvantum érme}}
+\section{\textbf{Hadamard-féle kvantumérme}}
 
-A Hadamard-féle kvantum érme egy olyan qubit, melynek a kiindulási állapota a
-$c = \ket{0}$ vagy $c \ket{1}$ vektor és ha feldobjuk, akkor a Hadamard mátrixszal
+A Hadamard-féle kvantumérme egy olyan qubit, melynek a kiindulási állapota a $c
+  = \ket{0}$ vagy $c \ket{1}$ vektor és ha feldobjuk, akkor a Hadamard mátrixszal
 szorzódik.
 
-Klasszikus érmék esetében ha feldobjuk 1-szer akkor $50\%$ eséllyel kapunk fejet,
-$50\%$ eséllyel pedig írást. Kvantum érmék esetében 1-szer feldobás után hasonló a helyzet.
-Például $\ket{0}$-ból kiindulva $H\ket{0} = \frac{1}{\sqrt{2}}\ket{0} +
-  \frac{1}{\sqrt{2}}\ket{1}$, tehát $(\frac{1}{\sqrt{2}})^2 = \frac{1}{2}$ valószínűséggel
-kapunk majd $\ket{0}$, illetve $\ket{1}$ vektort ha megmérjük a kvantum érmét a feldobás után.
+Klasszikus érmék esetében ha feldobjuk 1-szer akkor $50\%$ eséllyel kapunk
+fejet, $50\%$ eséllyel pedig írást. Kvantumérmék esetében 1-szer feldobás után
+hasonló a helyzet. Például $\ket{0}$-ból kiindulva $H\ket{0} =
+  \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}$, tehát
+$(\frac{1}{\sqrt{2}})^2 = \frac{1}{2}$ valószínűséggel kapunk majd $\ket{0}$,
+illetve $\ket{1}$ vektort ha megmérjük a kvantumérmét a feldobás után.
 
 Klasszikus érmék esetében 2-szer egymás után történő feldobás után a helyzet
-hasonló:  $50\%$ eséllyel kapunk fejet, $50\%$ eséllyel pedig írást. Kvantum érmék
-esetében azonban érdekes jelenség figyelhető meg: $H^2\ket{0} = H(\frac{1}{\sqrt{2}}\ket{0} +
-  \frac{1}{\sqrt{2}}\ket{1}) = \ket{0}$, hiszen a Hadamard-mátrix négyzete az
-identitás mátrix. Tehát a 2. feldobás után $100\%$ valószínűséggel a kiindulási
-értéket fogjuk visszakapni.
+hasonló: $50\%$ eséllyel kapunk fejet, $50\%$ eséllyel pedig írást.
+Kvantumérmék esetében azonban érdekes jelenség figyelhető meg: $H^2\ket{0} =
+  H(\frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}) = \ket{0}$, hiszen a
+Hadamard-mátrix négyzete az identitás mátrix. Tehát a 2. feldobás után $100\%$
+valószínűséggel a kiindulási értéket fogjuk visszakapni.
 
 A fenti megfigyelés azért nagyon érdekes, mert a 2. fejezetben ismertetett
 klasszikus gráfbolyongásban a szomszédok közötti véletlenszerű választás
 felfogható egy speciális érmével való dobásnak. 2-reguláris, 1 élsúlyú gráfok
-esetében a hagyományos érmével dobunk és fej esetén az egyik, írás esetén a másik
-szomszédba megyünk tovább. Megpróbálhatnánk ugyanezt kvantum érmével megtenni,
-a fenti 2-szer dobásos kísérlet alapján várható, hogy nagyon más eredményt fogunk
-kapni!
+esetében a hagyományos érmével dobunk és fej esetén az egyik, írás esetén a
+másik szomszédba megyünk tovább. Megpróbálhatnánk ugyanezt kvantumérmével
+megtenni, a fenti 2-szer dobásos kísérlet alapján várható, hogy nagyon más
+eredményt fogunk kapni!
 
 (k-reguláris, vagy általános, súlyozott gráfok esetére is lehet a fentieket
 általánosítani.)
 
-\chapter{\textbf{Kvantum séta}}
+\chapter{\textbf{Kvantumséta}}
 
-Kvantum bolyongások tanulmányozása esetén tehát először célszerű valamilyen
-2-reguláris gráfon vett bolyongást tanulmányozni, például az egyenesen. A következőkben
-erről lesz szó.
+Kvantumbolyongások tanulmányozása esetén tehát először célszerű valamilyen
+2-reguláris gráfon vett bolyongást tanulmányozni, például az egyenesen. A
+következőkben erről lesz szó.
 
 Tegyük fel, hogy a bolyongás az egyenesen az origóból indul és a a $k.$ lépés
 után megáll! Ekkor a pozíció tárolására elegendő egy $2k+1$ méretű vektor,
 hiszen legfeljebb $k$ messzire juthatunk mindkét irányban az origótól.
 
-Jelöljük $P$-vel ezt a $2k+1$ méretű vektort és legyen $P=(p_{-k},...,p_0,...,p_{k})$,
-ahol $p_i\in\mathds{C}$ $\forall i$-re és $\sum\limits_{i=-k}^{k}|p_i|^2 = 1$. Azt mondjuk, hogy
-annak a valószínűsége, hogy a bolyongó éppen az $i.$ koordinátán van $|p_i|^2$. Ezáltal egy
-teljes valószínűségi eloszlást kaptunk a bolyongó pozíciója szerint.
+Jelöljük $P$-vel ezt a $2k+1$ méretű vektort és legyen
+$P=(p_{-k},...,p_0,...,p_{k})$, ahol $p_i\in\mathds{C}$ $\forall i$-re és
+$\sum\limits_{i=-k}^{k}|p_i|^2 = 1$. Azt mondjuk hogy annak a valószínűsége,
+hogy a bolyongó éppen az $i.$ koordinátán van $|p_i|^2$. Ezáltal egy teljes
+valószínűségi eloszlást kaptunk a bolyongó pozíciója szerint.
 
-Mivel kezdetben a bolyongó az origóban van, ezért a hozzá tartozó pozícióvektor legyen
-$P = (0,...,0,1,0,...,0)$, vagyis a $p_0=1$, a többi $0$.
+Mivel kezdetben a bolyongó az origóban van, ezért a hozzá tartozó pozícióvektor
+legyen $P = (0,...,0,1,0,...,0)$, vagyis a $p_0=1$, a többi $0$.
 
 Majd...
 
@@ -139,8 +145,9 @@ Majd...
   $
 \end{center}
 
-A lépés két fázisból áll. Az első fázis a coin operátorral való szorzás, ami egy $2 \times 2$-es almátrixokból
-álló $4k+2 \times 4k+2$ -es mátrix, aminek a $2 \times 2$-es főátlójában Hadamard-mátrixok vannak:
+A lépés két fázisból áll. Az első fázis a coin operátorral való szorzás, ami
+egy $2 \times 2$-es almátrixokból álló $4k+2 \times 4k+2$ -es mátrix, aminek a
+$2 \times 2$-es főátlójában Hadamard-mátrixok vannak:
 
 \begin{center}
   \[ \hat{C} =
@@ -165,8 +172,9 @@ A lépés két fázisból áll. Az első fázis a coin operátorral való szorz�
   \]
 \end{center}
 
-A második fázisban definiáljuk a shift operátort, ami $2 \times 2$-es almátrixokból áll, a főátló felett a bal felső
-sarokban van 1-es, a főátló alatt a jobb felső sarokban:
+A második fázisban definiáljuk a shift operátort, ami $2 \times 2$-es
+almátrixokból áll, a főátló felett a bal felső sarokban van 1-es, a főátló
+alatt a jobb felső sarokban:
 
 \begin{center}
   \[ \hat{S} =
@@ -214,15 +222,18 @@ sarokban van 1-es, a főátló alatt a jobb felső sarokban:
   \]
 \end{center}
 
-Az $i.$ lépés után az aktuális $\Psi$ vektor: $\ket{\Psi_i} = U^i\cdot{}\ket{\Psi_0}$.
+Az $i.$ lépés után az aktuális $\Psi$ vektor: $\ket{\Psi_i} =
+  U^i\cdot{}\ket{\Psi_0}$.
 
 \textbf{Mérés}
 
-Annak a mérése, hogy a $i.$ koordinátán mekkora valószínűséggel van a bolyongó a $j.$ lépésben:
+Annak a mérése, hogy a $i.$ koordinátán mekkora valószínűséggel van a bolyongó
+a $j.$ lépésben:
 
 Legyen $I_k$ egy $2k+1$ méretű 0 vektor, kivéve az $i.$ koordinátát, ahol 1.
 
-Ekkor $\ket{p} = (\ket{I_k}\bra{I_k} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}) \cdot{} \ket{\Psi_j}$.
+Ekkor $\ket{p} = (\ket{I_k}\bra{I_k} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1
+  \end{pmatrix}) \cdot{} \ket{\Psi_j}$.
 
 Végül $\braket{p}$ a valószínűség, ami valós.
 
