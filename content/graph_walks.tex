@@ -16,7 +16,7 @@ valószínűség nem függ az időtől, azaz $P(X_{n+1} = i | X_n = j) = p_{i,j}
 \paragraph{Átmeneti valószínűségi mátrix} A Markov-lánc átmeneti valószínűségi
 mátrixa ezen $p_{i,j}$ elemekből áll.
 
-\paragraph{Stacionárius eloszlás} Az $X_i$ változó eloszlása ha $i$ tart a
+\paragraph{Stacionárius eloszlás} Az $X_i$ változó eloszlása, ha $i$ tart a
 végtelenbe.
 
 \paragraph{}
@@ -25,7 +25,7 @@ Egy ilyen Markov-folymat megfeleltethető egy irányított súlyozott gráfnak,
 a következő megkötésekkel:
 
 \begin{itemize}
-  \item A gráf csúcsai ultra thinmegfelelnek a valószínűségi változók (közös)
+  \item A gráf csúcsai megfelelnek a valószínűségi változók (közös)
         értékkészletének az elemeinek.
   \item A $j.$ csúcsból au $i.$ csúcsba mutató él súlya $p_{i,j}$.
   \item Amennyiben $p_{i,j}=0$, úgy feltehető, hogy nem mutat él a $j.$
@@ -49,10 +49,10 @@ bolyongást a következő módon végzünk:
 
 Egy gráfon egyszerre több ilyen bolyongást is végezhetünk, párhuzamosan. A $k.$
 lépésben hozzárendelhető a gráf csúcsaihoz, hogy aktuálisan hány bolyongó
-helyezkedik el bennük. Megfelelően sok bolyongóval így közelíthető az
+helyezkedik el bennük. Megfelelően sok bolyongóval így közelíthető a
 Markov-lánc $k.$ változójának az eloszlása.
 
-Bolyongásokkal kapcsolatban többféle tulajdonságot szoktak mérni adott gráfon.
+Bolyongásokkal kapcsolatban többféle tulajdonságot szoktak mérni adott gráfon:
 
 \paragraph{Keverési idő} A Markov-lánc azon valószínűségi változójának az
 indexe, melynek az eloszlása a stacionárius eloszlás $\epsilon$ sugarú
