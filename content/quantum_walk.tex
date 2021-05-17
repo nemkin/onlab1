@@ -212,7 +212,7 @@ Az érme $\ket{0}$ értékére lépünk balra, az $\ket{1}$ értékére pedig jo
 Tehát
 
 \begin{center}
-  \[ \hat{S} = S_{-}\ket{0}\bra{0} + S_{+}\ket{1}\bra{1}
+  \[ \hat{S} = S_{-}\otimes\ket{0}\bra{0} + S_{+}\otimes\ket{1}\bra{1}
   \]
 \end{center}
 
@@ -245,7 +245,7 @@ A két fázist összevonva egy lépéshez a következő mátrix tartozik:
 
 \begin{center}
   \[ \hat{U} = \hat{S} \cdot \hat{C} =
-    (S_{-}\ket{0}\bra{0} + S_{+}\ket{1}\bra{1})\cdot\hat{C}
+    (S_{-}\otimes\ket{0}\bra{0} + S_{+}\otimes\ket{1}\bra{1})\cdot\hat{C}
   \]
 \end{center}
 
@@ -282,13 +282,13 @@ Az $i.$ lépés után tehát az aktuális $\Psi$ állapotvektor: $\ket{\Psi_i} =
 Annak a mérése, hogy a $i.$ koordinátán mekkora valószínűséggel van a bolyongó
 a $j.$ lépésben.
 
-Legyen $e_k$ egy $(2k+1)$ méretű csupa-0 vektor, kivéve az $i.$ koordinátát,
+Legyen $e_i$ egy $(2k+1)$ méretű csupa-0 vektor, kivéve az $i.$ koordinátát,
 ahol 1 az értéke. Ekkor az állapotvektorból az i. koordinátához tartozó blokkot
-az $\ket{e_k}\bra{e_k} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+az $\ket{e_i}\bra{e_i} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
 mátrixszal történő beszorzással lehet kivágni:
 
 \begin{center} \[ \ket{\phi_{i,j}} =
-    (\ket{e_k}\bra{e_k} \otimes
+    (\ket{e_i}\bra{e_i} \otimes
     \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix})
     \cdot{} \ket{\Psi_j} \]
 \end{center}
