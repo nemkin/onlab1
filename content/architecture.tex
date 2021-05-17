@@ -19,7 +19,7 @@ A forráskód három nagy részre bomlik:
 
 A félév során sokféle gráfon futtattam szimulációs kísérleteket, melyek során
 több problémába ütköztem. Kezdetben úgy oldottam meg a szimulációkat, hogy a
-cél gráfok szomszédossági mátrixait generáltam le, egyben a memóriában tartva
+célgráfok szomszédossági mátrixait generáltam le, egyben a memóriában tartva
 azokat és a lépések során a megfelelő csúcshoz tartozó sorokat lekérdezve.
 
 Ezzel a módszerrel több probléma is jelentkezett. Az első gondot az okozta,
@@ -28,21 +28,21 @@ ezer csúcsú gráfot már nem tudtam a memóriában tartva szimulálni. A máso
 probléma pedig az volt, hogy a szomszédossági mátrixos ábrázolás nagyon távol
 esett az emberi szempontból természetes ábrázolástól. A kvantumbolyongásos
 szimulációkat tipikusan nem véletlenszerű gráfokon szokták kipróbálni, hanem
-jól ismert struktúrával rendelkező gráfokon. Ilyen gráfok például a súlyzó vagy
-a ragasztott bináris fa gráfok.
+jól ismert struktúrával rendelkező gráfokon. Ilyen gráfok például a ,,súlyzók''
+vagy a ragasztott bináris fák.
 
 A súlyzó gráf két egyforma méretű kört tartalmaz, mindkét körből kiválasztva
-k-k darab csúcsot, melyek teljes páros gráfot alkotnak (a súlyzó középső
-rúdját). A kör gráfokban pedig nem csak az egymás melletti csúcsok között fut
-él, hanem futhat él minden i. csúcs között is. A ragasztott bináris fa gráf
-pedig olyan, hogy két teljes bináris gráf leveleit szembefordítjuk és a két
+$k - k$ darab csúcsot, melyek teljes páros gráfot alkotnak (a súlyzó középső
+rúdját). A körökben pedig nem csak az egymás melletti csúcsok között fut
+él, hanem futhat él minden $i.$ csúcs között is. A ragasztott bináris fában
+két egyforma méretű teljes bináris fa leveleit szembefordítjuk és a két
 oldali levelek közé egy teljes páros gráfot készítünk.
 
 A fenti leírásból látható, hogy az ember számára természetes leírás a gráfokat
 ismert részgráfok kompozitjaként adja meg. A félév során olyan architektúrát
 alakítottam ki a szimulációkhoz, mely ezt a szemléletet támogatja. A
 szomszédossági mátrixos tárolási mód helyett pedig a szomszédossági orákulum
-megközelítést használva nagyban csökkent a memóriaigénye az alkalmazásnak.
+megközelítést használva nagyban csökkent az alkalmazás memóriaigénye.
 Ennek a megközelítésnek a lényege, hogy az ismert struktúrájú gráfokra nem
 tárolok a memóriában szomszédossági információt, helyette biztosítok egy
 függvényt, amely a bemeneti paraméterként kapott csúcsindexre kiszámolja a vele
